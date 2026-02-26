@@ -55,7 +55,9 @@ def log_search_runs(search_model, model_name, phase, X_train, y_train, parent_me
         mlflow.log_metrics(parent_metrics)
         
         # Log input training data
-        dataset = mlflow.data.from_pandas(X_train, targets=y_train, name=f"{model_name}_Train")
+        train_df = X_train.copy()
+        train_df["target"] = y_train
+        dataset = mlflow.data.from_pandas(train_df, targets="target", name=f"{model_name}_Train")
         mlflow.log_input(dataset, context="Training")
         
         # Log artifacts for the parent (best model)
@@ -67,7 +69,7 @@ def log_search_runs(search_model, model_name, phase, X_train, y_train, parent_me
         
         # Log parent model architecture
         signature = infer_signature(X_train, search_model.predict(X_train))
-        mlflow.sklearn.log_model(search_model.best_estimator_, "best_estimator", signature=signature)
+        mlflow.sklearn.log_model(search_model.best_estimator_, f"{model_name}_best_estimator", signature=signature)
         
         # Iterate over all param combinations tried and log as nested child runs
         cv_results = search_model.cv_results_
@@ -87,17 +89,6 @@ def log_search_runs(search_model, model_name, phase, X_train, y_train, parent_me
                     "mean_cv_score": cv_results["mean_test_score"][i],
                     "std_cv_score": cv_results["std_test_score"][i]
                 })
-                
-                '''# Log other metrics (e.g. split scores, f1, etc.) if your SearchCV produced them
-                # By checking if they exist in cv_results
-                extra_metrics = {}
-                for key in cv_results.keys():
-                    if key.startswith("split") or key.startswith("mean_test_") or key.startswith("std_test_"):
-                        if key not in ["mean_test_score", "std_test_score"]: # avoid duplicate
-                            extra_metrics[key] = cv_results[key][i]
-                
-                if extra_metrics:
-                    mlflow.log_metrics(extra_metrics)'''
                 
 def log_final_run(model, model_name, phase, X_test, y_test, metrics, artifacts, logger):
     """Logs the final winner model, metrics dict, and list of artifact paths."""
@@ -119,7 +110,9 @@ def log_final_run(model, model_name, phase, X_test, y_test, metrics, artifacts, 
                 logger.warning(f"Artifact not found, skipping: {path}")
                 
         # Log input test data
-        dataset = mlflow.data.from_pandas(X_test, targets=y_test, name=f"{model_name}_Test")
+        test_df = X_test.copy()
+        test_df["target"] = y_test
+        dataset = mlflow.data.from_pandas(test_df, targets=y_test, name=f"{model_name}_Test")
         mlflow.log_input(dataset, context="Testing")
         
         # Log final fitted model

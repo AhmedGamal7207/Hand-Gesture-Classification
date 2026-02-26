@@ -1,0 +1,247 @@
+2026-02-26 21:24:25 | INFO | === Starting Qualifications Phase === 
+2026-02-26 21:24:25 | INFO | Starting RandomizedSearch for LogisticRegression...
+2026-02-26 21:24:25 | INFO | Fitting LogisticRegression on training set
+
+2026-02-26 21:36:35 | INFO | Predicting with LogisticRegression on training set to get training metrics
+
+2026-02-26 21:36:35 | INFO | Plotting CM and CR for LogisticRegression
+
+2026-02-26 21:36:37 | INFO | Logging LogisticRegression search results for phase: qualifications
+2026-02-26 21:36:39 | ERROR | LogisticRegression failed during training in the qualifications phase
+2026-02-26 21:36:39 | ERROR | Traceback (most recent call last):
+  File "C:\Users\Ahmed\AppData\Local\Temp\ipykernel_20084\16799167.py", line 43, in <module>
+    mll.log_search_runs(
+  File "m:\Work\ITI\Courses\15. Supervised Machine Learning\Final Project\Hand-Gesture-Classification\mlflow_logging.py", line 58, in log_search_runs
+    dataset = mlflow.data.from_pandas(X_train, targets=y_train, name=f"{model_name}_Train")
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "m:\Work\ITI\Courses\15. Supervised Machine Learning\Final Project\Hand-Gesture-Classification\hand_gesture_venv\Lib\site-packages\mlflow\data\pandas_dataset.py", line 224, in from_pandas
+    return PandasDataset(
+           ^^^^^^^^^^^^^^
+  File "m:\Work\ITI\Courses\15. Supervised Machine Learning\Final Project\Hand-Gesture-Classification\hand_gesture_venv\Lib\site-packages\mlflow\data\pandas_dataset.py", line 48, in __init__
+    if targets is not None and targets not in df.columns:
+                                              ^^^^^^^^^^
+AttributeError: 'numpy.ndarray' object has no attribute 'columns'
+
+2026-02-26 21:36:39 | INFO | Starting RandomizedSearch for RandomForest...
+2026-02-26 21:36:39 | INFO | Fitting RandomForest on training set
+
+2026-02-26 21:36:55 | INFO | Predicting with RandomForest on training set to get training metrics
+
+2026-02-26 21:36:55 | INFO | Plotting CM and CR for RandomForest
+
+2026-02-26 21:36:58 | INFO | Logging RandomForest search results for phase: qualifications
+2026-02-26 21:37:00 | ERROR | RandomForest failed during training in the qualifications phase
+2026-02-26 21:37:00 | ERROR | Traceback (most recent call last):
+  File "C:\Users\Ahmed\AppData\Local\Temp\ipykernel_20084\16799167.py", line 43, in <module>
+    mll.log_search_runs(
+  File "m:\Work\ITI\Courses\15. Supervised Machine Learning\Final Project\Hand-Gesture-Classification\mlflow_logging.py", line 58, in log_search_runs
+    dataset = mlflow.data.from_pandas(X_train, targets=y_train, name=f"{model_name}_Train")
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "m:\Work\ITI\Courses\15. Supervised Machine Learning\Final Project\Hand-Gesture-Classification\hand_gesture_venv\Lib\site-packages\mlflow\data\pandas_dataset.py", line 224, in from_pandas
+    return PandasDataset(
+           ^^^^^^^^^^^^^^
+  File "m:\Work\ITI\Courses\15. Supervised Machine Learning\Final Project\Hand-Gesture-Classification\hand_gesture_venv\Lib\site-packages\mlflow\data\pandas_dataset.py", line 48, in __init__
+    if targets is not None and targets not in df.columns:
+                                              ^^^^^^^^^^
+AttributeError: 'numpy.ndarray' object has no attribute 'columns'
+
+2026-02-26 21:37:00 | INFO | Starting RandomizedSearch for XGBoost...
+2026-02-26 21:37:00 | INFO | Fitting XGBoost on training set
+
+2026-02-26 21:38:35 | INFO | Predicting with XGBoost on training set to get training metrics
+
+2026-02-26 21:38:35 | INFO | Plotting CM and CR for XGBoost
+
+2026-02-26 21:38:37 | INFO | Logging XGBoost search results for phase: qualifications
+2026-02-26 21:38:39 | ERROR | XGBoost failed during training in the qualifications phase
+2026-02-26 21:38:39 | ERROR | Traceback (most recent call last):
+  File "C:\Users\Ahmed\AppData\Local\Temp\ipykernel_20084\16799167.py", line 43, in <module>
+    mll.log_search_runs(
+  File "m:\Work\ITI\Courses\15. Supervised Machine Learning\Final Project\Hand-Gesture-Classification\mlflow_logging.py", line 58, in log_search_runs
+    dataset = mlflow.data.from_pandas(X_train, targets=y_train, name=f"{model_name}_Train")
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "m:\Work\ITI\Courses\15. Supervised Machine Learning\Final Project\Hand-Gesture-Classification\hand_gesture_venv\Lib\site-packages\mlflow\data\pandas_dataset.py", line 224, in from_pandas
+    return PandasDataset(
+           ^^^^^^^^^^^^^^
+  File "m:\Work\ITI\Courses\15. Supervised Machine Learning\Final Project\Hand-Gesture-Classification\hand_gesture_venv\Lib\site-packages\mlflow\data\pandas_dataset.py", line 48, in __init__
+    if targets is not None and targets not in df.columns:
+                                              ^^^^^^^^^^
+AttributeError: 'numpy.ndarray' object has no attribute 'columns'
+
+2026-02-26 21:38:39 | INFO | Starting RandomizedSearch for LightGBM...
+2026-02-26 21:38:39 | INFO | Fitting LightGBM on training set
+
+2026-02-26 21:39:17 | INFO | Predicting with LightGBM on training set to get training metrics
+
+2026-02-26 21:39:17 | INFO | Plotting CM and CR for LightGBM
+
+2026-02-26 21:39:19 | INFO | Logging LightGBM search results for phase: qualifications
+2026-02-26 21:39:21 | ERROR | LightGBM failed during training in the qualifications phase
+2026-02-26 21:39:21 | ERROR | Traceback (most recent call last):
+  File "C:\Users\Ahmed\AppData\Local\Temp\ipykernel_20084\16799167.py", line 43, in <module>
+    mll.log_search_runs(
+  File "m:\Work\ITI\Courses\15. Supervised Machine Learning\Final Project\Hand-Gesture-Classification\mlflow_logging.py", line 58, in log_search_runs
+    dataset = mlflow.data.from_pandas(X_train, targets=y_train, name=f"{model_name}_Train")
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "m:\Work\ITI\Courses\15. Supervised Machine Learning\Final Project\Hand-Gesture-Classification\hand_gesture_venv\Lib\site-packages\mlflow\data\pandas_dataset.py", line 224, in from_pandas
+    return PandasDataset(
+           ^^^^^^^^^^^^^^
+  File "m:\Work\ITI\Courses\15. Supervised Machine Learning\Final Project\Hand-Gesture-Classification\hand_gesture_venv\Lib\site-packages\mlflow\data\pandas_dataset.py", line 48, in __init__
+    if targets is not None and targets not in df.columns:
+                                              ^^^^^^^^^^
+AttributeError: 'numpy.ndarray' object has no attribute 'columns'
+
+2026-02-26 21:52:39 | INFO | === Starting Qualifications Phase === 
+2026-02-26 21:52:39 | INFO | Starting RandomizedSearch for LogisticRegression...
+2026-02-26 21:52:39 | INFO | Fitting LogisticRegression on training set
+
+2026-02-26 22:04:19 | INFO | Predicting with LogisticRegression on training set to get training metrics
+
+2026-02-26 22:04:19 | INFO | Plotting CM and CR for LogisticRegression
+
+2026-02-26 22:04:21 | INFO | Logging LogisticRegression search results for phase: qualifications
+2026-02-26 22:04:23 | ERROR | LogisticRegression failed during training in the qualifications phase
+2026-02-26 22:04:23 | ERROR | Traceback (most recent call last):
+  File "C:\Users\Ahmed\AppData\Local\Temp\ipykernel_23864\913313065.py", line 43, in <module>
+    mll.log_search_runs(
+  File "m:\Work\ITI\Courses\15. Supervised Machine Learning\Final Project\Hand-Gesture-Classification\mlflow_logging.py", line 60, in log_search_runs
+    dataset = mlflow.data.from_pandas(X_train, targets="target", name=f"{model_name}_Train")
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "m:\Work\ITI\Courses\15. Supervised Machine Learning\Final Project\Hand-Gesture-Classification\hand_gesture_venv\Lib\site-packages\mlflow\data\pandas_dataset.py", line 224, in from_pandas
+    return PandasDataset(
+           ^^^^^^^^^^^^^^
+  File "m:\Work\ITI\Courses\15. Supervised Machine Learning\Final Project\Hand-Gesture-Classification\hand_gesture_venv\Lib\site-packages\mlflow\data\pandas_dataset.py", line 49, in __init__
+    raise MlflowException(
+mlflow.exceptions.MlflowException: The specified pandas DataFrame does not contain the specified targets column 'target'.
+
+2026-02-26 22:04:23 | INFO | Starting RandomizedSearch for RandomForest...
+2026-02-26 22:04:23 | INFO | Fitting RandomForest on training set
+
+2026-02-26 22:04:40 | INFO | Predicting with RandomForest on training set to get training metrics
+
+2026-02-26 22:04:40 | INFO | Plotting CM and CR for RandomForest
+
+2026-02-26 22:04:42 | INFO | Logging RandomForest search results for phase: qualifications
+2026-02-26 22:04:44 | ERROR | RandomForest failed during training in the qualifications phase
+2026-02-26 22:04:44 | ERROR | Traceback (most recent call last):
+  File "C:\Users\Ahmed\AppData\Local\Temp\ipykernel_23864\913313065.py", line 43, in <module>
+    mll.log_search_runs(
+  File "m:\Work\ITI\Courses\15. Supervised Machine Learning\Final Project\Hand-Gesture-Classification\mlflow_logging.py", line 60, in log_search_runs
+    dataset = mlflow.data.from_pandas(X_train, targets="target", name=f"{model_name}_Train")
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "m:\Work\ITI\Courses\15. Supervised Machine Learning\Final Project\Hand-Gesture-Classification\hand_gesture_venv\Lib\site-packages\mlflow\data\pandas_dataset.py", line 224, in from_pandas
+    return PandasDataset(
+           ^^^^^^^^^^^^^^
+  File "m:\Work\ITI\Courses\15. Supervised Machine Learning\Final Project\Hand-Gesture-Classification\hand_gesture_venv\Lib\site-packages\mlflow\data\pandas_dataset.py", line 49, in __init__
+    raise MlflowException(
+mlflow.exceptions.MlflowException: The specified pandas DataFrame does not contain the specified targets column 'target'.
+
+2026-02-26 22:04:44 | INFO | Starting RandomizedSearch for XGBoost...
+2026-02-26 22:04:44 | INFO | Fitting XGBoost on training set
+
+2026-02-26 22:06:14 | INFO | Predicting with XGBoost on training set to get training metrics
+
+2026-02-26 22:06:15 | INFO | Plotting CM and CR for XGBoost
+
+2026-02-26 22:06:16 | INFO | Logging XGBoost search results for phase: qualifications
+2026-02-26 22:06:18 | ERROR | XGBoost failed during training in the qualifications phase
+2026-02-26 22:06:18 | ERROR | Traceback (most recent call last):
+  File "C:\Users\Ahmed\AppData\Local\Temp\ipykernel_23864\913313065.py", line 43, in <module>
+    mll.log_search_runs(
+  File "m:\Work\ITI\Courses\15. Supervised Machine Learning\Final Project\Hand-Gesture-Classification\mlflow_logging.py", line 60, in log_search_runs
+    dataset = mlflow.data.from_pandas(X_train, targets="target", name=f"{model_name}_Train")
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "m:\Work\ITI\Courses\15. Supervised Machine Learning\Final Project\Hand-Gesture-Classification\hand_gesture_venv\Lib\site-packages\mlflow\data\pandas_dataset.py", line 224, in from_pandas
+    return PandasDataset(
+           ^^^^^^^^^^^^^^
+  File "m:\Work\ITI\Courses\15. Supervised Machine Learning\Final Project\Hand-Gesture-Classification\hand_gesture_venv\Lib\site-packages\mlflow\data\pandas_dataset.py", line 49, in __init__
+    raise MlflowException(
+mlflow.exceptions.MlflowException: The specified pandas DataFrame does not contain the specified targets column 'target'.
+
+2026-02-26 22:06:18 | INFO | Starting RandomizedSearch for LightGBM...
+2026-02-26 22:06:18 | INFO | Fitting LightGBM on training set
+
+2026-02-26 22:07:03 | INFO | Predicting with LightGBM on training set to get training metrics
+
+2026-02-26 22:07:03 | INFO | Plotting CM and CR for LightGBM
+
+2026-02-26 22:07:05 | INFO | Logging LightGBM search results for phase: qualifications
+2026-02-26 22:07:07 | ERROR | LightGBM failed during training in the qualifications phase
+2026-02-26 22:07:07 | ERROR | Traceback (most recent call last):
+  File "C:\Users\Ahmed\AppData\Local\Temp\ipykernel_23864\913313065.py", line 43, in <module>
+    mll.log_search_runs(
+  File "m:\Work\ITI\Courses\15. Supervised Machine Learning\Final Project\Hand-Gesture-Classification\mlflow_logging.py", line 60, in log_search_runs
+    dataset = mlflow.data.from_pandas(X_train, targets="target", name=f"{model_name}_Train")
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "m:\Work\ITI\Courses\15. Supervised Machine Learning\Final Project\Hand-Gesture-Classification\hand_gesture_venv\Lib\site-packages\mlflow\data\pandas_dataset.py", line 224, in from_pandas
+    return PandasDataset(
+           ^^^^^^^^^^^^^^
+  File "m:\Work\ITI\Courses\15. Supervised Machine Learning\Final Project\Hand-Gesture-Classification\hand_gesture_venv\Lib\site-packages\mlflow\data\pandas_dataset.py", line 49, in __init__
+    raise MlflowException(
+mlflow.exceptions.MlflowException: The specified pandas DataFrame does not contain the specified targets column 'target'.
+
+2026-02-26 22:11:34 | INFO | === Starting Qualifications Phase === 
+2026-02-26 22:11:34 | INFO | Starting RandomizedSearch for LogisticRegression...
+2026-02-26 22:11:34 | INFO | Fitting LogisticRegression on training set
+
+2026-02-26 22:12:03 | INFO | Predicting with LogisticRegression on training set to get training metrics
+
+2026-02-26 22:12:03 | INFO | Plotting CM and CR for LogisticRegression
+
+2026-02-26 22:12:05 | INFO | Logging LogisticRegression search results for phase: qualifications
+2026-02-26 22:12:52 | INFO | Logging 3 child runs for LogisticRegression...
+2026-02-26 22:12:52 | INFO | Finished LogisticRegression. Best F1-Macro CV Score: 0.9519
+
+2026-02-26 22:12:52 | INFO | Starting RandomizedSearch for RandomForest...
+2026-02-26 22:12:52 | INFO | Fitting RandomForest on training set
+
+2026-02-26 22:13:10 | INFO | Predicting with RandomForest on training set to get training metrics
+
+2026-02-26 22:13:10 | INFO | Plotting CM and CR for RandomForest
+
+2026-02-26 22:13:12 | INFO | Logging RandomForest search results for phase: qualifications
+2026-02-26 22:19:58 | INFO | === Starting Qualifications Phase === 
+2026-02-26 22:19:58 | INFO | Starting RandomizedSearch for LogisticRegression...
+2026-02-26 22:19:58 | INFO | Fitting LogisticRegression on training set
+
+2026-02-26 22:20:26 | INFO | Predicting with LogisticRegression on training set to get training metrics
+
+2026-02-26 22:20:26 | INFO | Plotting CM and CR for LogisticRegression
+
+2026-02-26 22:20:27 | INFO | Logging LogisticRegression search results for phase: qualifications
+2026-02-26 22:20:36 | INFO | Logging 3 child runs for LogisticRegression...
+2026-02-26 22:20:36 | INFO | Finished LogisticRegression. Best F1-Macro CV Score: 0.9519
+
+2026-02-26 22:20:36 | INFO | Starting RandomizedSearch for RandomForest...
+2026-02-26 22:20:36 | INFO | Fitting RandomForest on training set
+
+2026-02-26 22:20:53 | INFO | Predicting with RandomForest on training set to get training metrics
+
+2026-02-26 22:20:53 | INFO | Plotting CM and CR for RandomForest
+
+2026-02-26 22:20:54 | INFO | Logging RandomForest search results for phase: qualifications
+2026-02-26 22:21:06 | INFO | Logging 3 child runs for RandomForest...
+2026-02-26 22:21:06 | INFO | Finished RandomForest. Best F1-Macro CV Score: 0.9681
+
+2026-02-26 22:21:06 | INFO | Starting RandomizedSearch for XGBoost...
+2026-02-26 22:21:06 | INFO | Fitting XGBoost on training set
+
+2026-02-26 22:22:29 | INFO | Predicting with XGBoost on training set to get training metrics
+
+2026-02-26 22:22:29 | INFO | Plotting CM and CR for XGBoost
+
+2026-02-26 22:22:31 | INFO | Logging XGBoost search results for phase: qualifications
+2026-02-26 22:22:39 | INFO | Logging 3 child runs for XGBoost...
+2026-02-26 22:22:39 | INFO | Finished XGBoost. Best F1-Macro CV Score: 0.9776
+
+2026-02-26 22:22:39 | INFO | Starting RandomizedSearch for LightGBM...
+2026-02-26 22:22:39 | INFO | Fitting LightGBM on training set
+
+2026-02-26 22:23:08 | INFO | Predicting with LightGBM on training set to get training metrics
+
+2026-02-26 22:23:09 | INFO | Plotting CM and CR for LightGBM
+
+2026-02-26 22:23:10 | INFO | Logging LightGBM search results for phase: qualifications
+2026-02-26 22:23:19 | INFO | Logging 3 child runs for LightGBM...
+2026-02-26 22:23:19 | INFO | Finished LightGBM. Best F1-Macro CV Score: 0.9809
+
