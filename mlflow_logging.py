@@ -112,7 +112,7 @@ def log_final_run(model, model_name, phase, X_test, y_test, metrics, artifacts, 
         # Log input test data
         test_df = X_test.copy()
         test_df["target"] = y_test
-        dataset = mlflow.data.from_pandas(test_df, targets=y_test, name=f"{model_name}_Test")
+        dataset = mlflow.data.from_pandas(test_df, targets="target", name=f"{model_name}_Test")
         mlflow.log_input(dataset, context="Testing")
         
         # Log final fitted model
@@ -121,5 +121,5 @@ def log_final_run(model, model_name, phase, X_test, y_test, metrics, artifacts, 
             model, 
             artifact_path="final_model", 
             signature=signature, 
-            input_example=X_test[:2]
+            input_example=X_test.iloc[:2]
         )
