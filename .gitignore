@@ -3,4 +3,3 @@ __pycache__/
 query_db.py
 parse_nb.py
 video_capture.py
-mlartifacts/
