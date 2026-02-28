@@ -36,6 +36,42 @@ This repository features 2 branches:
 
 ---
 
+## 🔗 Quick Links
+
+* **My Inference Video:** [Google Drive Video](https://drive.google.com/file/d/1y-xmu_Nik2GzOD0EAIVv2GOOZPeUaoyj/view?usp=sharing)
+
+---
+
+## 🛠️ Usage & Instructions
+
+### 1. Training the Pipeline
+If you wish to re-run the MLflow architecture or train your own models from scratch:
+
+1. Clone the repository and install the dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
+2. Open `main.ipynb` in Jupyter Notebook/Lab and run the cells sequentially. 
+
+> [!WARNING]
+> **Training Time considerations:** The `RandomForestSearchCV` and `GridSearchCV` blocks in the *Qualifications* and *Fine-Tuning* phases perform hundreds of Cross-Validation fits and may take hours depending on your CPU. 
+> 
+> *Recommendation:* Since the optimal hyperparameters have already been discovered and documented above, you may safely skip navigating the Phase 1 and 2 grids and plug the final parameters directly into the **Last Model Standing** phase!
+
+### 2. Testing & Live Inference
+To test the pre-trained champion sequence directly on a video feed using the `inference_only` script:
+
+1. Place your target `.mp4` video inside the `videos/` folder.
+2. Ensure you have the serialized LabelEncoder and Model from the `models/` directory.
+3. Run the inference script.
+
+> [!TIP]
+> **For maximum model accuracy:** We highly recommend using `cv2` (OpenCV) to capture the video streams or interact with your webcam, and strictly maintaining the default resolution format of `640x480`. Standardizing the frame dimensions ensures the spatial coordinates the model trained on directly align with the inference stream!
+
+<br>
+
+---
+
 ## 🔬 MLflow Tracking Architecture
 
 To maintain a clean, professional, and highly organized experimental tracking environment, this project implements a rigorous **Parent-Child tracking hierarchy** via a custom `mlflow_logging` module.
@@ -136,34 +172,6 @@ By securing an astounding **98.43% F1-Macro** over 18 disparate gesture classes 
 <br>
 
 ---
-
-## 🛠️ Usage & Instructions
-
-### 1. Training the Pipeline
-If you wish to re-run the MLflow architecture or train your own models from scratch:
-
-1. Clone the repository and install the dependencies:
-   ```bash
-   pip install -r requirements.txt
-   ```
-2. Open `main.ipynb` in Jupyter Notebook/Lab and run the cells sequentially. 
-
-> [!WARNING]
-> **Training Time considerations:** The `RandomForestSearchCV` and `GridSearchCV` blocks in the *Qualifications* and *Fine-Tuning* phases perform hundreds of Cross-Validation fits and may take hours depending on your CPU. 
-> 
-> *Recommendation:* Since the optimal hyperparameters have already been discovered and documented above, you may safely skip navigating the Phase 1 and 2 grids and plug the final parameters directly into the **Last Model Standing** phase!
-
-### 2. Testing & Live Inference
-To test the pre-trained champion sequence directly on a video feed using the `inference_only` script:
-
-1. Place your target `.mp4` video inside the `videos/` folder.
-2. Ensure you have the serialized LabelEncoder and Model from the `models/` directory.
-3. Run the inference script.
-
-> [!TIP]
-> **For maximum model accuracy:** We highly recommend using `cv2` (OpenCV) to capture the video streams or interact with your webcam, and strictly maintaining the default resolution format of `640x480`. Standardizing the frame dimensions ensures the spatial coordinates the model trained on directly align with the inference stream!
-
-<br>
 
 ## 📄 License
 
