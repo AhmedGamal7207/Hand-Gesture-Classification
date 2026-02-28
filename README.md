@@ -31,31 +31,42 @@ This project presents an end-to-end framework for dynamically classifying human 
 Instead of deploying immense, slow Convolutional Neural Networks (CNNs), this project proves that providing highly engineered skeletal coordinate data to rapid, gradient-boosted decision trees (like **LightGBM** and **XGBoost**) can achieve an incredible **98.43% F1-Macro score** across 18 distinct gestures with near-instant inference latency.
 
 This repository features 2 branches:
-* **`main`**: The core classification code and logic.
-* **`research`**: The current branch, featuring hyper-detailed, multi-phase **MLflow Tracking** to mathematically optimize hyperparameter scaling.
+* **`main`**: The current branch, The core classification code and logic.
+* **`research`**: This branch is featuring hyper-detailed, multi-phase **MLflow Tracking** to mathematically optimize hyperparameter scaling.
 
 ---
 
-## 🔬 MLflow Tracking Architecture
+---
 
-To maintain a clean, professional, and highly organized experimental tracking environment, this project implements a rigorous **Parent-Child tracking hierarchy** via a custom `mlflow_logging` module.
+## 🛠️ Usage & Instructions
 
-> This architecture eliminates UI clutter while preserving deep, granular data for every hyperparameter combination tested, allowing us to rapidly iterate and compare multiple models.
+### 1. Training the Pipeline
+If you wish to train your own models from scratch:
 
-### 📈 Tracking Statistics
-* **Total MLflow Runs Tracked:** `535`
-* **Parent Runs (Algorithm Evaluations):** `28`
-* **Child Runs (Hyperparameter Variations):** `507`
+1. Clone the repository and install the dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
+2. Open `main.ipynb` in Jupyter Notebook/Lab and run the cells sequentially. 
 
-### 🏗️ Hierarchy Design
+> [!WARNING]
+> **Training Time considerations:** The `RandomForestSearchCV` and `GridSearchCV` blocks in the *Qualifications* and *Fine-Tuning* phases perform hundreds of Cross-Validation fits and may take hours depending on your CPU. 
+> 
+> *Recommendation:* Since the optimal hyperparameters have already been discovered and documented above, you may safely skip navigating the Phase 1 and 2 grids and plug the final parameters directly into the **Last Model Standing** phase!
 
-| Level | Component | Description | Tags |
-| :---: | :--- | :--- | :--- |
-| **1️⃣** | **Experiment** | The global container for all classification trials. | `Hand_Gestures_Classification` |
-| **2️⃣** | **Parent Run** | Represents an abstract Algorithm evaluation (e.g., `RandomForest_Search`). Stores the *best model artifact*, overarching metrics, and data signatures. | `model`, `phase: qualifications` |
-| **3️⃣** | **Child Runs** | Nested trials under their respective Parent Run (e.g., `trial_1`, `trial_2`). Each represents a specific *hyperparameter combination*. | `is_child: true`, `model`, `phase` |
+### 2. Testing & Live Inference
+To test the pre-trained champion sequence directly on a video feed using the `inference_only` script:
+
+1. Place your target `.mp4` video inside the `videos/` folder.
+2. Ensure you have the serialized LabelEncoder and Model from the `models/` directory.
+3. Run the inference script.
+
+> [!TIP]
+> **For maximum model accuracy:** We highly recommend using `cv2` (OpenCV) to capture the video streams or interact with your webcam, and strictly maintaining the default resolution format of `640x480`. Standardizing the frame dimensions ensures the spatial coordinates the model trained on directly align with the inference stream!
 
 <br>
+
+---
 
 ### 🚀 Pipeline Phases
 
@@ -72,13 +83,13 @@ We manage the lifecycle of our models across three distinct deployment phases:
 #### 3. `🏆 Phase: Final`
 * The single undisputed champion model, evaluated on strictly held-out `X_test` data.
 * Tracks ultimate `f1_macro` metrics, combined with serialized artifacts (`.pkl`), the `Confusion Matrix`, and `ROC Curves`.
-* **Architecture:** Standalone run & registration to the MLflow Model Registry.
+* **Architecture:** Standalone run.
 
 <br>
 
 ## 📊 Pipeline Results & Model Comparison 
 
-By tracking each phase meticulously via MLflow, we captured the progression of our classifiers from baseline combinations to highly optimized champion architectures. The comparison below illustrates this journey.
+By tracking each phase meticulously, we captured the progression of our classifiers from baseline combinations to highly optimized champion architectures. The comparison below illustrates this journey.
 
 ### 1. Qualifications Phase (Randomized Baseline)
 We initially evaluated four distinct algorithm concepts using 3-fold Stratified Cross-Validation to quickly establish performance ceilings.
@@ -135,35 +146,6 @@ By securing an astounding **98.43% F1-Macro** over 18 disparate gesture classes 
 
 <br>
 
----
-
-## 🛠️ Usage & Instructions
-
-### 1. Training the Pipeline
-If you wish to re-run the MLflow architecture or train your own models from scratch:
-
-1. Clone the repository and install the dependencies:
-   ```bash
-   pip install -r requirements.txt
-   ```
-2. Open `main.ipynb` in Jupyter Notebook/Lab and run the cells sequentially. 
-
-> [!WARNING]
-> **Training Time considerations:** The `RandomForestSearchCV` and `GridSearchCV` blocks in the *Qualifications* and *Fine-Tuning* phases perform hundreds of Cross-Validation fits and may take hours depending on your CPU. 
-> 
-> *Recommendation:* Since the optimal hyperparameters have already been discovered and documented above, you may safely skip navigating the Phase 1 and 2 grids and plug the final parameters directly into the **Last Model Standing** phase!
-
-### 2. Testing & Live Inference
-To test the pre-trained champion sequence directly on a video feed using the `inference_only` script:
-
-1. Place your target `.mp4` video inside the `videos/` folder.
-2. Ensure you have the serialized LabelEncoder and Model from the `models/` directory.
-3. Run the inference script.
-
-> [!TIP]
-> **For maximum model accuracy:** We highly recommend using `cv2` (OpenCV) to capture the video streams or interact with your webcam, and strictly maintaining the default resolution format of `640x480`. Standardizing the frame dimensions ensures the spatial coordinates the model trained on directly align with the inference stream!
-
-<br>
 
 ## 📄 License
 
