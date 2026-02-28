@@ -36,6 +36,12 @@ This repository features 2 branches:
 
 ---
 
+## 🔗 Quick Links
+
+* **My Inference Video:** [Google Drive Video](https://drive.google.com/file/d/1y-xmu_Nik2GzOD0EAIVv2GOOZPeUaoyj/view?usp=sharing)
+* **Main Training Notebook:** [Google Colab Link](https://colab.research.google.com/drive/1LBQSO1Bl0a7GfBWoU8aP9xIQOqcv4f2t?usp=sharing)
+* **Live Inference Notebook:** [Google Colab Link](https://colab.research.google.com/drive/1mVF09kb_Oz97ACn04Kc7OChW39o5k_6u?usp=sharing)
+
 ---
 
 ## 🛠️ Usage & Instructions
